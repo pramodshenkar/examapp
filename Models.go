@@ -1,39 +1,56 @@
 package main
 
-import (
-	"gopkg.in/mgo.v2/bson"
-)
-
 type Option struct {
-	OptionId    bson.ObjectId `json:"optionid,omitempty"`
-	OptionsText string        `json:"optiontext" bson:"optiontext"`
+	OptionId    string `json:"optionid,omitempty"`
+	OptionsText string `json:"optiontext" bson:"optiontext"`
 }
 
 type Question struct {
-	QuestionID   bson.ObjectId `json:"questionid,omitempty"`
-	QuestionText string        `json:"questiontext"`
-	Options      []Option      `json:"options"`
-	Answer       Option        `json:"answer"`
-	Marks        int           `json:"marks"`
+	QuestionID   string   `json:"questionid,omitempty"`
+	QuestionText string   `json:"questiontext"`
+	Options      []Option `json:"options"`
+	Answer       Option   `json:"answer"`
+	Marks        int      `json:"marks"`
 }
 
 type Exam struct {
-	ExamId    bson.ObjectId   `json:"examid,omitempty"`
-	ExamName  string          `json:"examname"`
-	Questions []bson.ObjectId `json:"questions"`
+	ExamId    string   `json:"examid,omitempty"`
+	ExamName  string   `json:"examname"`
+	Questions []string `json:"questions"`
 }
 
 type Course struct {
-	CourseID   bson.ObjectId   `json:"courseid,omitempty"`
-	CourseName string          `json:"coursename"`
-	Exams      []bson.ObjectId `json:"exams"`
+	CourseID   string   `json:"courseid,omitempty"`
+	CourseName string   `json:"coursename"`
+	Exams      []string `json:"exams"`
 }
 
+/***************************************************************************************************/
+
+type QuestionReport struct {
+	QuestionID  string
+	GivenAnswer string
+	Marks       int
+}
+
+type ExamReport struct {
+	ExamID          string
+	QuestionReports []QuestionReport
+}
+
+type CourseReport struct {
+	CourseID    string
+	ExamReports []ExamReport
+}
+
+/***************************************************************************************************/
+
 type Student struct {
-	StudentID   bson.ObjectId   `json:"studentid,omitempty"`
-	StudentName string          `json:"name"`
-	College     string          `json:"college"`
-	Email       string          `json:"email"`
-	Password    string          `json:"password"`
-	Course      []bson.ObjectId `json:"course"`
+	StudentID    string         `json:"studentid,omitempty"`
+	StudentName  string         `json:"name"`
+	College      string         `json:"college"`
+	Email        string         `json:"email"`
+	Password     string         `json:"password"`
+	Course       []string       `json:"course"`
+	CourseReport []CourseReport `json:"reports"`
 }

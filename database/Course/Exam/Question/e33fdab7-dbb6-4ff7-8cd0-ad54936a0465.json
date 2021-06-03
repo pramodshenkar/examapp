@@ -1,0 +1,26 @@
+{
+    "questionid":"e33fdab7-dbb6-4ff7-8cd0-ad54936a0465",
+    "questiontext":"1+1",
+    "options":[
+        {
+            "optionId":"abc8b3bd-c410-454e-b1f7-064c65772db0",
+            "optionText":"2"
+        },
+        {
+            "optionId":"76b794b0-f0ab-453f-8958-3b65010e6645",
+            "optionText":"3"
+        },
+        {
+            "optionId":"4819bd7a-4e57-44a5-b4ed-44250dc40268",
+            "optionText":"4"
+        },
+        {
+            "optionId":"a6cfa84e-508e-488b-8076-0ca1529c329a",
+            "optionText":"5"
+        }
+    ],
+    "answer":{
+            "optionId":"abc8b3bd-c410-454e-b1f7-064c65772db0",
+            "optionText":"2"
+    }
+}

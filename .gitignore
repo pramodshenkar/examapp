@@ -11,3 +11,4 @@ go.mod
 go.sum
 notes.md
 examapp
+database/Student/
