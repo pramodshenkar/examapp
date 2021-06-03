@@ -1,4 +1,4 @@
-package main
+package models
 
 type Option struct {
 	OptionId    string `json:"optionid,omitempty"`
@@ -41,16 +41,4 @@ type ExamReport struct {
 type CourseReport struct {
 	CourseID    string
 	ExamReports []ExamReport
-}
-
-/***************************************************************************************************/
-
-type Student struct {
-	StudentID    string         `json:"studentid,omitempty"`
-	StudentName  string         `json:"name"`
-	College      string         `json:"college"`
-	Email        string         `json:"email"`
-	Password     string         `json:"password"`
-	Course       []string       `json:"course"`
-	CourseReport []CourseReport `json:"reports"`
 }

@@ -1,38 +1,20 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
+	"github.com/gin-gonic/gin"
+	"github.com/pramodshenkar/examapp/controllers"
 )
 
 func main() {
-	name, path, err := CreateStudent()
-
-	if err == nil {
-		fmt.Println("..........Creating Document..........")
-		fmt.Println("Document for ", name, "is added at", path)
+	router := gin.Default()
+	v1 := router.Group("")
+	{
+		student := new(controllers.StudentController)
+		v1.POST("/signup", student.Signup)
+		v1.POST("/login", student.Login)
 	}
-
-	getStudent(path)
-
-}
-
-func getStudent(path string) {
-
-	file, err := ioutil.ReadFile(path)
-
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	data := Student{}
-
-	if err := json.Unmarshal([]byte(file), &data); err != nil {
-		fmt.Println(err)
-	}
-
-	fmt.Println("..........Reading Document..........")
-	fmt.Println(data)
-
+	router.NoRoute(func(c *gin.Context) {
+		c.JSON(404, gin.H{"message": "Not found"})
+	})
+	router.Run(":5000")
 }
