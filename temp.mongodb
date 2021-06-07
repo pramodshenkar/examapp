@@ -1,0 +1,47 @@
+{
+	studentid : "1234"
+    name :"Pramod",
+    college:"Avcoe",
+    email:"pramod@mail.com"
+    password:"qazqazqaz"
+	courses : ["1","2","3"]
+	CoursesReport : [
+		{
+			courseid:"1"
+	        examreports:[
+				{
+					examid : "1"
+					questionreports : [
+						{
+							questionId : 1 
+							GivenAnswer : "Aaa"
+							Marks : 1
+                        
+						},
+						{
+							questionId : 2
+							GivenAnswer : "Bbb"
+							Marks : 2
+						}
+					]
+				},
+                {
+					examid : "2"
+					questionreports : [
+						{
+							questionId : 1 
+							GivenAnswer : "Ccc"
+							Marks : 1
+                        
+						},
+						{
+							questionId : 2
+							GivenAnswer : "Ddd"
+							Marks : 2
+						}
+					]
+				}
+			]
+		}
+	]
+}
