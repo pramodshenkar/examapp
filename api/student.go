@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"path/filepath"
 
 	"github.com/pramodshenkar/examapp/models"
 	"go.mongodb.org/mongo-driver/x/mongo/driver/uuid"
@@ -31,19 +32,59 @@ func AddStudent(getStudent models.Student) (string, error) {
 	return path, err
 }
 
-func GetStudent(path string) models.Student {
+func GetStudentByUsername(username string) (models.Student, error) {
+
+	StudentID, err := GetStudentFile(username)
+
+	if err != nil {
+		return models.Student{}, err
+	}
+
+	if StudentID == "" {
+		fmt.Println("NO FILE FOUND")
+		return models.Student{}, nil
+	}
+
+	path := fmt.Sprintf("%s%s%s", "database/Student/", StudentID, ".json")
 
 	file, err := ioutil.ReadFile(path)
 
 	if err != nil {
-		fmt.Println(err)
+		return models.Student{}, err
 	}
 
 	student := models.Student{}
 
 	if err := json.Unmarshal([]byte(file), &student); err != nil {
+		return models.Student{}, err
+	}
+
+	return student, nil
+}
+
+func GetStudentFile(username string) (string, error) {
+	files, err := filepath.Glob("./database/Student/*")
+	if err != nil {
 		fmt.Println(err)
 	}
 
-	return student
+	for _, file := range files {
+		file, err := ioutil.ReadFile(file)
+
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		student := models.Student{}
+
+		if err := json.Unmarshal([]byte(file), &student); err != nil {
+			continue
+		}
+
+		if username == student.Username {
+			return student.StudentID, err
+
+		}
+	}
+	return "", err
 }
