@@ -18,12 +18,27 @@ func Signup(c *gin.Context) {
 		return
 	}
 
-	_, err := api.AddStudent(student)
+	result, err := api.GetStudentByUsername(student.Username)
+
+	if err != nil {
+		c.JSON(400, gin.H{"message": "Problem While Cheking username"})
+		c.Abort()
+		return
+	}
+
+	if result.Username != "" {
+		c.JSON(409, gin.H{"message": "Account Already exist"})
+		c.Abort()
+		return
+	}
+
+	studentid, err := api.AddStudent(student)
 	if err != nil {
 		c.JSON(400, gin.H{"message": "Problem creating an account"})
 		c.Abort()
 		return
 	}
+	fmt.Println(studentid, "added to database")
 	c.JSON(200, gin.H{"message": "Record Added Successfully"})
 }
 

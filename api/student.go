@@ -29,7 +29,7 @@ func AddStudent(getStudent models.Student) (string, error) {
 
 	path := fmt.Sprintf("%s%s%s", "database/Student/", uuidstring, ".json")
 	err := ioutil.WriteFile(path, file, 0644)
-	return path, err
+	return uuidstring, err
 }
 
 func GetStudentByUsername(username string) (models.Student, error) {
