@@ -17,6 +17,7 @@ func AddStudent(getStudent models.Student) (string, error) {
 		StudentID:     uuidstring,
 		StudentName:   getStudent.StudentName,
 		College:       getStudent.College,
+		Username:      getStudent.Username,
 		Email:         getStudent.Email,
 		Password:      getStudent.Password,
 		Courses:       getStudent.Courses,
