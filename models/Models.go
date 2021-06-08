@@ -19,12 +19,6 @@ type Exam struct {
 	Questions []string `json:"questions"`
 }
 
-type Course struct {
-	CourseID   string   `json:"courseid,omitempty"`
-	CourseName string   `json:"coursename"`
-	Exams      []string `json:"exams"`
-}
-
 /***************************************************************************************************/
 
 type QuestionReport struct {
