@@ -13,7 +13,7 @@ func Signup(c *gin.Context) {
 	var student models.Student
 
 	if c.BindJSON(&student) != nil {
-		c.JSON(406, gin.H{"message": "Provide relevant fields"})
+		c.JSON(400, gin.H{"message": "Provide relevant fields"})
 		c.Abort()
 		return
 	}
@@ -46,7 +46,8 @@ func Login(c *gin.Context) {
 	var data models.StudentCredentials
 
 	if c.BindJSON(&data) != nil {
-		c.JSON(406, gin.H{"message": "Provide required details"})
+		fmt.Println("Provide required details")
+		c.JSON(400, gin.H{"message": "Provide required details"})
 		c.Abort()
 		return
 	}
@@ -54,12 +55,15 @@ func Login(c *gin.Context) {
 	result, err := api.GetStudentByUsername(data.Username)
 
 	if err != nil {
+		fmt.Println("Problem logging into your account")
 		c.JSON(400, gin.H{"message": "Problem logging into your account"})
 		c.Abort()
 		return
 	}
 
 	if result.Username == "" {
+		fmt.Println("Opps! Username is not found")
+
 		c.JSON(404, gin.H{"message": "Opps! Username is not found"})
 		c.Abort()
 		return
@@ -88,10 +92,11 @@ func Login(c *gin.Context) {
 	// }
 
 	if result.Password != data.Password {
+		fmt.Println("Opps Wrong password")
 		c.JSON(404, gin.H{"message": "Opps Wrong password"})
 		c.Abort()
 		return
 	}
 
-	c.JSON(200, gin.H{"message": result})
+	c.JSON(200, gin.H{"student": result})
 }

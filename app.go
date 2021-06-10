@@ -12,13 +12,15 @@ func main() {
 
 	router.POST("/hello", controllers.Hello)
 
-	v1 := router.Group("")
+	v1 := router.Group("/student")
 	{
 		v1.POST("/signup", controllers.Signup)
 		v1.POST("/login", controllers.Login)
+		v1.POST("/courses", controllers.GetSudentEnrolledCourses)
+
 	}
 
-	router.GET("/courses", controllers.ShowCourses)
+	router.GET("/courses", controllers.GetAllCourses)
 
 	router.NoRoute(func(c *gin.Context) {
 		c.JSON(404, gin.H{"message": "Not found"})
