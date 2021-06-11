@@ -17,3 +17,8 @@ type CourseReport struct {
 	CourseID    string       `json:"courseid"`
 	ExamReports []ExamReport `json:"examreports"`
 }
+
+type StudentReport struct {
+	StudentID string         `json:"studentid"`
+	Report    []CourseReport `json:"report"`
+}

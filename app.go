@@ -26,6 +26,8 @@ func main() {
 	router.POST("/questions", controllers.GetQuestionsByExamID)
 	router.POST("/question", controllers.GetQuestionsByQuestionID)
 
+	router.POST("/report", controllers.GetStudentReport)
+
 	router.NoRoute(func(c *gin.Context) {
 		c.JSON(404, gin.H{"message": "Not found"})
 	})

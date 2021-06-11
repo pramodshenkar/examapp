@@ -27,14 +27,14 @@ func AddStudent(getStudent models.Student) (string, error) {
 	// fmt.Println(courseReports)
 
 	student := models.Student{
-		StudentID:     uuidstring,
-		StudentName:   getStudent.StudentName,
-		College:       getStudent.College,
-		Username:      getStudent.Username,
-		Email:         getStudent.Email,
-		Password:      getStudent.Password,
-		Courses:       getStudent.Courses,
-		CourseReports: []models.CourseReport{},
+		StudentID:   uuidstring,
+		StudentName: getStudent.StudentName,
+		College:     getStudent.College,
+		Username:    getStudent.Username,
+		Email:       getStudent.Email,
+		Password:    getStudent.Password,
+		Courses:     getStudent.Courses,
+		// CourseReports: []models.CourseReport{},
 	}
 
 	file, _ := json.MarshalIndent(student, "", " ")

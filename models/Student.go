@@ -8,7 +8,7 @@ type Student struct {
 	Email         string         `json:"email" binding:"required,email"`
 	Password      string         `json:"password" binding:"required"`
 	Courses       []string       `json:"courses"`
-	CourseReports []CourseReport `json:"reports,omitempty"`
+	// CourseReports []CourseReport `json:"reports,omitempty"`
 }
 
 type StudentCredentials struct {
