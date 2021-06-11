@@ -4,59 +4,58 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"path/filepath"
 
 	"github.com/pramodshenkar/examapp/models"
 	"go.mongodb.org/mongo-driver/x/mongo/driver/uuid"
 )
 
-func AddStudent(getStudent models.Student) (string, error) {
+func GenerateStudentID() string {
 	uuid, _ := uuid.New()
-	uuidstring := fmt.Sprintf("%x-%x-%x-%x-%x", uuid[0:4], uuid[4:6], uuid[6:8], uuid[8:10], uuid[10:])
+	StudentID := fmt.Sprintf("%x-%x-%x-%x-%x", uuid[0:4], uuid[4:6], uuid[6:8], uuid[8:10], uuid[10:])
+	return StudentID
+}
 
-	// var courseReports []models.CourseReport
-
-	// for i, courseid := range getStudent.Courses {
-	// 	courseReport, err := createCourseReport(courseid)
-	// 	if err != nil {
-	// 		continue
-	// 	}
-	// 	fmt.Println(i, courseReport)
-	// 	courseReports = append(courseReports, courseReport)
-	// }
-	// fmt.Println(courseReports)
+func AddStudent(studentid string, getStudent models.Student) bool {
 
 	student := models.Student{
-		StudentID:   uuidstring,
+		StudentID:   studentid,
 		StudentName: getStudent.StudentName,
 		College:     getStudent.College,
 		Username:    getStudent.Username,
 		Email:       getStudent.Email,
 		Password:    getStudent.Password,
 		Courses:     getStudent.Courses,
-		// CourseReports: []models.CourseReport{},
 	}
 
-	file, _ := json.MarshalIndent(student, "", " ")
+	file, err := json.MarshalIndent(student, "", " ")
 
-	path := fmt.Sprintf("%s%s%s", "database/Student/", uuidstring, ".json")
-	err := ioutil.WriteFile(path, file, 0644)
-	return uuidstring, err
+	if err != nil {
+		return false
+	}
+
+	path := fmt.Sprintf("%s%s%s", "database/Student/", studentid, ".json")
+	err = ioutil.WriteFile(path, file, 0644)
+
+	if err != nil {
+		return false
+	}
+
+	return true
 }
 
-func GetStudentByUsername(username string) (models.Student, error) {
+func GetStudent(username string) (models.Student, error) {
 
-	StudentID, err := GetStudentFile(username)
+	studentCredentials, err := GetStudentCredentials(username)
 
 	if err != nil {
 		return models.Student{}, err
 	}
 
-	if StudentID == "" {
-		return models.Student{}, nil
+	if studentCredentials.Username == "" {
+		return models.Student{}, err
 	}
 
-	path := fmt.Sprintf("%s%s%s", "database/Student/", StudentID, ".json")
+	path := fmt.Sprintf("%s%s%s", "database/Student/", studentCredentials.StudentID, ".json")
 
 	file, err := ioutil.ReadFile(path)
 
@@ -73,29 +72,72 @@ func GetStudentByUsername(username string) (models.Student, error) {
 	return student, nil
 }
 
-func GetStudentFile(username string) (string, error) {
-	files, err := filepath.Glob("./database/Student/*")
+func AddCredentials(studentid string, student models.Student) bool {
+
+	allcredentials, err := GetAllCredentials()
+
+	if err != nil {
+		return false
+	}
+
+	credentials := models.Credentials{
+		StudentID: studentid,
+		Username:  student.Username,
+		Password:  student.Password,
+	}
+
+	allcredentials = append(allcredentials, credentials)
+
+	fmt.Println(allcredentials)
+
+	credentialFile := struct {
+		Credentials []models.Credentials `json:"credentials"`
+	}{
+		Credentials: allcredentials,
+	}
+
+	file, _ := json.MarshalIndent(credentialFile, "", " ")
+
+	err = ioutil.WriteFile("database/credentials.json", file, 0644)
+	if err != nil {
+		return false
+	}
+	return true
+}
+
+func GetAllCredentials() ([]models.Credentials, error) {
+
+	file, err := ioutil.ReadFile("database/credentials.json")
+
 	if err != nil {
 		fmt.Println(err)
+		return []models.Credentials{}, err
 	}
 
-	for _, file := range files {
-		file, err := ioutil.ReadFile(file)
+	var credentials struct {
+		Credentials []models.Credentials `json:"credentials"`
+	}
 
-		if err != nil {
-			fmt.Println(err)
-		}
+	if err := json.Unmarshal([]byte(file), &credentials); err != nil {
+		fmt.Println(err)
+		return []models.Credentials{}, err
+	}
 
-		student := models.Student{}
+	return credentials.Credentials, nil
+}
 
-		if err := json.Unmarshal([]byte(file), &student); err != nil {
-			continue
-		}
+func GetStudentCredentials(username string) (models.Credentials, error) {
 
-		if username == student.Username {
-			return student.StudentID, err
+	credentials, err := GetAllCredentials()
+	if err != nil {
+		return models.Credentials{}, err
+	}
 
+	for _, credential := range credentials {
+
+		if credential.Username == username {
+			return credential, nil
 		}
 	}
-	return "", err
+	return models.Credentials{}, err
 }

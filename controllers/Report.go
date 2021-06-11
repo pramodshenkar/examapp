@@ -57,7 +57,7 @@ func GetStudentReport(c *gin.Context) {
 		return
 	}
 
-	student, err := api.GetStudentByUsername(data.Username)
+	student, err := api.GetStudent(data.Username)
 
 	if err != nil {
 		fmt.Println("Problem lwhile getting username")

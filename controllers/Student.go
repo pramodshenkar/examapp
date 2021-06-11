@@ -18,85 +18,80 @@ func Signup(c *gin.Context) {
 		return
 	}
 
-	result, err := api.GetStudentByUsername(student.Username)
+	credentials, err := api.GetStudentCredentials(student.Username)
 
 	if err != nil {
-		c.JSON(400, gin.H{"message": "Problem While Cheking username"})
+		c.JSON(400, gin.H{"message": "Problem While Cheking if username exists"})
 		c.Abort()
 		return
 	}
 
-	if result.Username != "" {
+	if credentials.Username != "" {
 		c.JSON(409, gin.H{"message": "Account Already exist"})
 		c.Abort()
 		return
 	}
 
-	studentid, err := api.AddStudent(student)
-	if err != nil {
-		c.JSON(400, gin.H{"message": "Problem creating an account"})
+	studentid := api.GenerateStudentID()
+
+	isSavedData := api.AddStudent(studentid, student)
+
+	isSavedCredentials := api.AddCredentials(studentid, student)
+
+	if !isSavedData || !isSavedCredentials {
+		c.JSON(400, gin.H{"message": "Cannot save Credentials"})
 		c.Abort()
 		return
 	}
-	fmt.Println(studentid, "added to database")
-	c.JSON(200, gin.H{"message": "Record Added Successfully"})
+
+	c.JSON(200, gin.H{"message": "Data saved successfully"})
+
+	if err != nil {
+		c.JSON(400, gin.H{"message": "Problem to write credentials."})
+		c.Abort()
+		return
+	}
 }
 
 func Login(c *gin.Context) {
-	var data models.StudentCredentials
+	var getStudent struct {
+		Username string `json:"username"`
+		Password string `json:"password"`
+	}
 
-	if c.BindJSON(&data) != nil {
+	if c.BindJSON(&getStudent) != nil {
 		fmt.Println("Provide required details")
-		c.JSON(400, gin.H{"message": "Provide required details"})
+		c.JSON(400, gin.H{"message": "Provide required details."})
 		c.Abort()
 		return
 	}
 
-	result, err := api.GetStudentByUsername(data.Username)
+	studentCredentials, err := api.GetStudentCredentials(getStudent.Username)
 
 	if err != nil {
-		fmt.Println("Problem logging into your account")
-		c.JSON(400, gin.H{"message": "Problem logging into your account"})
+		c.JSON(400, gin.H{"message": "Problem to get credentials."})
 		c.Abort()
 		return
 	}
 
-	if result.Username == "" {
-		fmt.Println("Opps! Username is not found")
-
-		c.JSON(404, gin.H{"message": "Opps! Username is not found"})
+	if studentCredentials.Username == "" {
+		c.JSON(404, gin.H{"message": "Opps! Username is not found."})
 		c.Abort()
 		return
 	}
 
-	fmt.Println(result)
-
-	// hashedPassword := []byte(result.Password)
-	// password := []byte(data.Password)
-
-	// err = helpers.PasswordCompare(password, hashedPassword)
-
-	// if err != nil {
-	// 	c.JSON(403, gin.H{"message": "Invalid user credentials"})
-	// 	c.Abort()
-	// 	return
-	// }
-
-	// jwtToken, err2 := services.GenerateToken(data.Email)
-
-	// // If we fail to generate token for access
-	// if err2 != nil {
-	// 	c.JSON(403, gin.H{"message": "There was a problem logging you in, try again later"})
-	// 	c.Abort()
-	// 	return
-	// }
-
-	if result.Password != data.Password {
-		fmt.Println("Opps Wrong password")
-		c.JSON(404, gin.H{"message": "Opps Wrong password"})
+	if studentCredentials.Password != getStudent.Password {
+		c.JSON(404, gin.H{"message": "Opps! Wrong password."})
 		c.Abort()
 		return
 	}
 
-	c.JSON(200, gin.H{"student": result})
+	student, err := api.GetStudent(studentCredentials.Username)
+	if err != nil {
+		c.JSON(400, gin.H{"message": "Problem to your data."})
+		c.Abort()
+		return
+	}
+
+	c.JSON(200, gin.H{"student": student})
 }

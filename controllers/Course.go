@@ -30,7 +30,7 @@ func GetSudentEnrolledCourses(c *gin.Context) {
 		return
 	}
 
-	student, err := api.GetStudentByUsername(data.Username)
+	student, err := api.GetStudent(data.Username)
 
 	if err != nil {
 		fmt.Println("Problem logging into your account")
