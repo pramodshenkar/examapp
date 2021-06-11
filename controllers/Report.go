@@ -47,7 +47,7 @@ import (
 func GetStudentReport(c *gin.Context) {
 
 	var data struct {
-		StudentID string `json:"studentid" binding:"required"`
+		Username string `json:"username" binding:"required"`
 	}
 
 	if c.BindJSON(&data) != nil {
@@ -57,11 +57,20 @@ func GetStudentReport(c *gin.Context) {
 		return
 	}
 
-	report, err := api.GetStudentReport(data.StudentID)
+	student, err := api.GetStudentByUsername(data.Username)
 
 	if err != nil {
-		fmt.Println("Problem logging into your account")
-		c.JSON(400, gin.H{"message": "Problem logging into your account"})
+		fmt.Println("Problem lwhile getting username")
+		c.JSON(400, gin.H{"message": "Problem while getting username"})
+		c.Abort()
+		return
+	}
+
+	report, err := api.GetStudentReport(student.StudentID)
+
+	if err != nil {
+		fmt.Println("Problem while Getting report")
+		c.JSON(400, gin.H{"message": "Problem while Getting report"})
 		c.Abort()
 		return
 	}
@@ -76,5 +85,5 @@ func GetStudentReport(c *gin.Context) {
 
 	fmt.Println(report)
 
-	c.JSON(200, gin.H{"message": report})
+	c.JSON(200, gin.H{"report": report.Report})
 }
