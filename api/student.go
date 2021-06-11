@@ -14,6 +14,18 @@ func AddStudent(getStudent models.Student) (string, error) {
 	uuid, _ := uuid.New()
 	uuidstring := fmt.Sprintf("%x-%x-%x-%x-%x", uuid[0:4], uuid[4:6], uuid[6:8], uuid[8:10], uuid[10:])
 
+	// var courseReports []models.CourseReport
+
+	// for i, courseid := range getStudent.Courses {
+	// 	courseReport, err := createCourseReport(courseid)
+	// 	if err != nil {
+	// 		continue
+	// 	}
+	// 	fmt.Println(i, courseReport)
+	// 	courseReports = append(courseReports, courseReport)
+	// }
+	// fmt.Println(courseReports)
+
 	student := models.Student{
 		StudentID:     uuidstring,
 		StudentName:   getStudent.StudentName,
@@ -41,7 +53,6 @@ func GetStudentByUsername(username string) (models.Student, error) {
 	}
 
 	if StudentID == "" {
-		fmt.Println("NO FILE FOUND")
 		return models.Student{}, nil
 	}
 

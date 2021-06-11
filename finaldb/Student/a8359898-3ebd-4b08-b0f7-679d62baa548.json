@@ -1,0 +1,12 @@
+{
+ "studentid": "a8359898-3ebd-4b08-b0f7-679d62baa548",
+ "name": "Pramod",
+ "username": "pramods11",
+ "college": "AVCOE",
+ "email": "parmod@mail.com",
+ "password": "111",
+ "courses": [
+  "7cc3eba4-9fd5-4465-b129-218eb57a2151",
+  "f7f5ed36-6bbc-4ad6-bbed-850c5775321e"
+ ]
+}

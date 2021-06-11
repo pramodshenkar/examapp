@@ -36,10 +36,6 @@ func GetCourses() ([]models.Course, error) {
 }
 
 func GetCoursesByUsername(student models.Student) ([]models.Course, error) {
-	// files, err := filepath.Glob("./database/Course/*")
-	// if err != nil {
-	// 	return []models.Course{}, err
-	// }
 
 	courseids := student.Courses
 
