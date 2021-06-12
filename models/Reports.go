@@ -7,18 +7,13 @@ type QuestionReport struct {
 	Marks       int    `json:"marks"`
 }
 
+type AttemptReport struct {
+	AttemptNo      int              `json:"attemptno"`
+	IsSubmitted    bool             `json:"issubmitted"`
+	QuestionReport []QuestionReport `json:"questionreport"`
+}
+
 type ExamReport struct {
-	ExamID          string           `json:"examid"`
-	IsSubmitted     bool             `json:"issubmitted"`
-	QuestionReports []QuestionReport `json:"questionreport"`
-}
-
-type CourseReport struct {
-	CourseID    string       `json:"courseid"`
-	ExamReports []ExamReport `json:"examreports"`
-}
-
-type StudentReport struct {
-	StudentID string         `json:"studentid"`
-	Report    []CourseReport `json:"report"`
+	ExamID         string          `json:"examid"`
+	AttemptReports []AttemptReport `json:"attemptreports"`
 }

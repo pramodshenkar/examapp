@@ -23,6 +23,8 @@ func main() {
 	router.POST("/exams", controllers.GetExamsByCourseID)
 	router.POST("/exam", controllers.GetExamsByExamID)
 
+	router.POST("/report", controllers.GetReport)
+
 	router.POST("/questions", controllers.GetQuestionsByExamID)
 	router.POST("/question", controllers.GetQuestionsByQuestionID)
 
