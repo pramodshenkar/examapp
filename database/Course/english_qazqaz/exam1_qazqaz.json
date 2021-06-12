@@ -1,6 +1,7 @@
 {
     "examid":"exam1_qazqaz",
     "examname":"Insem Exam",
+    "attempts":3,
     "questions":[
         "q1_qazqaz",
         "q2_qazqaz",

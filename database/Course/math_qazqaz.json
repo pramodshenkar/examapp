@@ -1,9 +1,5 @@
 {
-    "courseid":"math_qazqaz",
-    "coursename":"Math",
-    "exams":[
-        "exam1_qazqaz",
-        "exam2_qazqaz",
-        "exam3_qazqaz"
-    ]
+  "courseid": "math_qazqaz",
+  "coursename": "Math",
+  "exams": ["exam1_qazqaz"]
 }

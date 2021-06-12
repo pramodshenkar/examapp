@@ -16,6 +16,7 @@ type Question struct {
 type Exam struct {
 	ExamID    string   `json:"examid"`
 	ExamName  string   `json:"examname"`
+	Attempts  int      `json:"attempts"`
 	Questions []string `json:"questions,omitempty"`
 }
 
