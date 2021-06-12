@@ -22,5 +22,5 @@ type Exam struct {
 type Course struct {
 	CourseID   string   `json:"courseid"`
 	CourseName string   `json:"coursename"`
-	Exams      []string `json:"exams,omitempty"`
+	Exams      []string `json:"exams"`
 }

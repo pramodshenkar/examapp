@@ -1,7 +1,7 @@
 {
     "courseid":"english_qazqaz",
     "coursename":"English",
-    "exam":[
+    "exams":[
         "exam1_qazqaz",
         "exam2_qazqaz",
         "exam3_qazqaz"

@@ -58,3 +58,28 @@ func GetSudentEnrolledCourses(c *gin.Context) {
 
 	c.JSON(200, gin.H{"courses": courses})
 }
+
+func GetCoursesByID(c *gin.Context) {
+
+	var data struct {
+		CourseID string `json:"courseid" binding:"required"`
+	}
+
+	if c.BindJSON(&data) != nil {
+		fmt.Println("Provide required details")
+		c.JSON(400, gin.H{"message": "Provide required details"})
+		c.Abort()
+		return
+	}
+
+	course, err := api.GetCoursesByID(data.CourseID)
+
+	if err != nil {
+		fmt.Println("Problem logging into your account")
+		c.JSON(400, gin.H{"message": "Problem logging into your account"})
+		c.Abort()
+		return
+	}
+
+	c.JSON(200, gin.H{"course": course})
+}

@@ -39,8 +39,6 @@ func GetCoursesByUsername(student models.Student) ([]models.Course, error) {
 
 	courseids := student.Courses
 
-	fmt.Println(courseids)
-
 	var courses []models.Course
 
 	for _, courseid := range courseids {
@@ -59,4 +57,24 @@ func GetCoursesByUsername(student models.Student) ([]models.Course, error) {
 		courses = append(courses, course)
 	}
 	return courses, nil
+}
+
+func GetCoursesByID(courseid string) (models.Course, error) {
+
+	path := fmt.Sprintf("%s%s%s", "database/Course/", courseid, ".json")
+
+	file, err := ioutil.ReadFile(path)
+
+	if err != nil {
+		return models.Course{}, err
+	}
+
+	course := models.Course{}
+
+	if err := json.Unmarshal([]byte(file), &course); err != nil {
+		return models.Course{}, err
+	}
+
+	return course, nil
+
 }

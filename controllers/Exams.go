@@ -9,7 +9,7 @@ import (
 
 func GetExamsByCourseID(c *gin.Context) {
 	var data struct {
-		CourseID string `json:"courseID" binding:"required"`
+		CourseID string `json:"courseid" binding:"required"`
 	}
 
 	if c.BindJSON(&data) != nil {
