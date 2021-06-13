@@ -1,0 +1,10 @@
+{
+    "examid":"exam2_qazqaz",
+    "examname":"Endsem Exam",
+    "attempts":3,
+    "questions":[
+        "q1_qazqaz",
+        "q2_qazqaz",
+        "q3_qazqaz"
+    ]
+}
