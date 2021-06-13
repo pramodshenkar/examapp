@@ -25,7 +25,7 @@ func main() {
 
 	router.POST("/report", controllers.GetReport)
 
-	router.POST("/questions", controllers.GetQuestionsByExamID)
+	router.POST("/questions", controllers.GetQuestionsIDsByCourseID)
 	router.POST("/question", controllers.GetQuestionsByQuestionID)
 
 	router.NoRoute(func(c *gin.Context) {

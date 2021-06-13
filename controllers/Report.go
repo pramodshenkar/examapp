@@ -10,9 +10,9 @@ import (
 func GetReport(c *gin.Context) {
 
 	var data struct {
-		UserID   string `json:"userid" binding:"required"`
-		CourseID string `json:"courseid" binding:"required"`
-		ExamID   string `json:"examid" binding:"required"`
+		StudentID string `json:"studentid" binding:"required"`
+		CourseID  string `json:"courseid" binding:"required"`
+		ExamID    string `json:"examid" binding:"required"`
 	}
 
 	if c.BindJSON(&data) != nil {
@@ -22,7 +22,7 @@ func GetReport(c *gin.Context) {
 		return
 	}
 
-	examReport, err := api.GetReport(data.UserID, data.CourseID, data.ExamID)
+	examReport, err := api.GetReport(data.StudentID, data.CourseID, data.ExamID, 3)
 
 	if err != nil {
 		fmt.Println("Problem to get examreport file")

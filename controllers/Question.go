@@ -7,28 +7,29 @@ import (
 	"github.com/pramodshenkar/examapp/api"
 )
 
-func GetQuestionsByExamID(c *gin.Context) {
-	// var data struct {
-	// 	ExamID string `json:"exanmid" binding:"required"`
-	// }
+func GetQuestionsIDsByCourseID(c *gin.Context) {
+	var data struct {
+		CourseID string `json:"courseid" binding:"required"`
+		ExamID   string `json:"examid" binding:"required"`
+	}
 
-	// if c.BindJSON(&data) != nil {
-	// 	fmt.Println("Provide required details")
-	// 	c.JSON(400, gin.H{"message": "Provide required details"})
-	// 	c.Abort()
-	// 	return
-	// }
+	if c.BindJSON(&data) != nil {
+		fmt.Println("Provide required details")
+		c.JSON(400, gin.H{"message": "Provide required details"})
+		c.Abort()
+		return
+	}
 
-	// questions, err := api.GetQuestionsByExamID(data.ExamID)
+	questions, err := api.GetQuestionsIDsByCourseID(data.CourseID, data.ExamID)
 
-	// if err != nil {
-	// 	fmt.Println("Problem to get exams ")
-	// 	c.JSON(400, gin.H{"message": "Problem to get Exams"})
-	// 	c.Abort()
-	// 	return
-	// }
+	if err != nil {
+		fmt.Println("Problem to get exams ")
+		c.JSON(400, gin.H{"message": "Problem to get Exams"})
+		c.Abort()
+		return
+	}
 
-	c.JSON(200, gin.H{"exam": "YET TO IMPLIMENT"})
+	c.JSON(200, gin.H{"questions": questions})
 }
 
 func GetQuestionsByQuestionID(c *gin.Context) {

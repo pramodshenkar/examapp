@@ -8,34 +8,23 @@ import (
 	"github.com/pramodshenkar/examapp/models"
 )
 
-func GetQuestionsByExamID(courseid, examid string) ([]models.Question, error) {
-	// path := fmt.Sprintf("%s%s%s%s%s", "database/Course/", courseid, "/", examid, "/*")
+func GetQuestionsIDsByCourseID(courseid, examid string) ([]string, error) {
 
-	// files, err := filepath.Glob(path)
-	// if err != nil {
-	// return []models.Question{}, err
-	// }
+	path := fmt.Sprintf("%s%s%s%s%s", "database/Course/", courseid, "/", examid, ".json")
+	file, err := ioutil.ReadFile(path)
 
-	// var questions []models.Question
+	if err != nil {
+		fmt.Println(err)
+		return []string{}, err
+	}
 
-	// for _, file := range files {
-	// 	file, err := ioutil.ReadFile(file)
+	exam := models.Exam{}
 
-	// 	if err != nil {
-	// 		continue
-	// 	}
+	if err := json.Unmarshal([]byte(file), &exam); err != nil {
+		return []string{}, err
+	}
 
-	// 	question := models.Question{}
-
-	// 	if err := json.Unmarshal([]byte(file), &question); err != nil {
-	// 		continue
-	// 	}
-
-	// 	questions = append(questions, question)
-	// }
-	// fmt.Println(questions)
-	// return questions, nil
-	return []models.Question{}, nil
+	return exam.Questions, nil
 }
 
 func GetQuestionsByQuestionID(courseid, questionid string) (models.Question, error) {
