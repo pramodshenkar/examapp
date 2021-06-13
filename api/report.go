@@ -73,7 +73,7 @@ func GenerateReport(path, courseid, examid string, attemptCount int) (models.Exa
 func GenerateAttemptReport(courseid, examid string, attemptNo int) models.AttemptReport {
 	var questionReports []models.QuestionReport
 
-	questions, err := GetQuestionsIDsByCourseID(courseid, examid)
+	questions, err := GetQuestionsIDsByExamID(courseid, examid)
 
 	if err != nil {
 		fmt.Println("Error while getting Questions to generate report", err)

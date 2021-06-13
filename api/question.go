@@ -8,7 +8,8 @@ import (
 	"github.com/pramodshenkar/examapp/models"
 )
 
-func GetQuestionsIDsByCourseID(courseid, examid string) ([]string, error) {
+// GetQuestionsIDsByExamID
+func GetQuestionsIDsByExamID(courseid, examid string) ([]string, error) {
 
 	path := fmt.Sprintf("%s%s%s%s%s", "database/Course/", courseid, "/", examid, ".json")
 	file, err := ioutil.ReadFile(path)

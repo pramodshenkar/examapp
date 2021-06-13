@@ -7,7 +7,7 @@ import (
 	"github.com/pramodshenkar/examapp/api"
 )
 
-func GetQuestionsIDsByCourseID(c *gin.Context) {
+func GetQuestionsIDsByExamID(c *gin.Context) {
 	var data struct {
 		CourseID string `json:"courseid" binding:"required"`
 		ExamID   string `json:"examid" binding:"required"`
@@ -20,7 +20,7 @@ func GetQuestionsIDsByCourseID(c *gin.Context) {
 		return
 	}
 
-	questions, err := api.GetQuestionsIDsByCourseID(data.CourseID, data.ExamID)
+	questions, err := api.GetQuestionsIDsByExamID(data.CourseID, data.ExamID)
 
 	if err != nil {
 		fmt.Println("Problem to get exams ")
@@ -54,5 +54,5 @@ func GetQuestionsByQuestionID(c *gin.Context) {
 		return
 	}
 
-	c.JSON(200, gin.H{"exam": question})
+	c.JSON(200, gin.H{"question": question})
 }
