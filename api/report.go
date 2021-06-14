@@ -188,9 +188,11 @@ func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid 
 				var questionReports []models.QuestionReport
 
 				for _, questionReport := range attemptReport.QuestionReport {
+
 					if questionReport.QuestionID == questionid {
+
 						if questionReport.IsAnswered {
-							fmt.Println("Already Answered")
+							fmt.Println(" Already Answered")
 						} else {
 							questionReport.IsAnswered = true
 							questionReport.GivenAnswer = answerid

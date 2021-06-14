@@ -1,7 +1,7 @@
 package models
 
 type QuestionReport struct {
-	QuestionID  string `json:"optionid"`
+	QuestionID  string `json:"questionid"`
 	IsAnswered  bool   `json:"isanswered"`
 	GivenAnswer string `json:"givenanswer"`
 	Marks       int    `json:"marks"`

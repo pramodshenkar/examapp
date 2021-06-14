@@ -3,22 +3,22 @@
  "attemptreports": [
   {
    "attemptno": 1,
-   "issubmitted": false,
+   "issubmitted": true,
    "questionreport": [
     {
-     "optionid": "q1_qazqaz",
+     "questionid": "q1_qazqaz",
      "isanswered": false,
      "givenanswer": "",
      "marks": 0
     },
     {
-     "optionid": "q2_qazqaz",
-     "isanswered": true,
-     "givenanswer": "opt1_qazqaz",
+     "questionid": "q2_qazqaz",
+     "isanswered": false,
+     "givenanswer": "",
      "marks": 0
     },
     {
-     "optionid": "q3_qazqaz",
+     "questionid": "q3_qazqaz",
      "isanswered": false,
      "givenanswer": "",
      "marks": 0
@@ -27,22 +27,22 @@
   },
   {
    "attemptno": 2,
-   "issubmitted": false,
+   "issubmitted": true,
    "questionreport": [
     {
-     "optionid": "q1_qazqaz",
+     "questionid": "q1_qazqaz",
      "isanswered": false,
      "givenanswer": "",
      "marks": 0
     },
     {
-     "optionid": "q2_qazqaz",
-     "isanswered": true,
+     "questionid": "q2_qazqaz",
+     "isanswered": false,
      "givenanswer": "",
      "marks": 0
     },
     {
-     "optionid": "q3_qazqaz",
+     "questionid": "q3_qazqaz",
      "isanswered": false,
      "givenanswer": "",
      "marks": 0
@@ -51,22 +51,22 @@
   },
   {
    "attemptno": 3,
-   "issubmitted": false,
+   "issubmitted": true,
    "questionreport": [
     {
-     "optionid": "q1_qazqaz",
+     "questionid": "q1_qazqaz",
      "isanswered": false,
      "givenanswer": "",
      "marks": 0
     },
     {
-     "optionid": "q2_qazqaz",
-     "isanswered": true,
+     "questionid": "q2_qazqaz",
+     "isanswered": false,
      "givenanswer": "",
      "marks": 0
     },
     {
-     "optionid": "q3_qazqaz",
+     "questionid": "q3_qazqaz",
      "isanswered": false,
      "givenanswer": "",
      "marks": 0
