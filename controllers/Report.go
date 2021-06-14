@@ -62,3 +62,32 @@ func UpdateReportForEndExam(c *gin.Context) {
 	c.JSON(200, gin.H{"EndExam": isUpdated})
 
 }
+
+func UpdateReportForSubmitAnswer(c *gin.Context) {
+
+	var data struct {
+		StudentID  string `json:"studentid" binding:"required"`
+		CourseID   string `json:"courseid" binding:"required"`
+		ExamID     string `json:"examid" binding:"required"`
+		QuestionID string `json:"questionid" binding:"required"`
+	}
+
+	if c.BindJSON(&data) != nil {
+		fmt.Println("Provide required details")
+		c.JSON(400, gin.H{"message": "Provide required details"})
+		c.Abort()
+		return
+	}
+
+	isUpdated := api.UpdateReportForSubmitAnswer(data.StudentID, data.CourseID, data.ExamID, data.QuestionID)
+
+	if !isUpdated {
+		c.JSON(400, gin.H{"message": "Cant update report"})
+		c.Abort()
+		return
+
+	}
+
+	c.JSON(200, gin.H{"SubmitAnswer": isUpdated})
+
+}

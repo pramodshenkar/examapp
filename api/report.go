@@ -82,7 +82,7 @@ func GenerateAttemptReport(courseid, examid string, attemptNo int) models.Attemp
 		questionReports = append(questionReports, questionReport)
 	}
 
-	fmt.Println(questionReports)
+	// fmt.Println(questionReports)
 
 	attemptReport := models.AttemptReport{
 		AttemptNo:      attemptNo,
@@ -139,10 +139,75 @@ func UpdateReportForEndExam(userid string, courseid string, examid string) bool 
 
 	if isUpdated {
 
-		fmt.Println(examReport)
+		// fmt.Println(examReport)
 
 		file, err = json.MarshalIndent(examReport, "", " ")
 
+		if err != nil {
+			fmt.Println(err)
+			return false
+		}
+
+		err = ioutil.WriteFile(path, file, 0644)
+		if err != nil {
+			fmt.Println(err)
+		}
+		return err == nil
+	}
+
+	return isUpdated
+}
+
+func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid string) bool {
+
+	filename := fmt.Sprintf("%s%s%s%s%s", userid, "_", courseid, "_", examid)
+
+	path := fmt.Sprintf("%s%s%s", "database/Report/", filename, ".json")
+
+	file, err := ioutil.ReadFile(path)
+
+	if err != nil {
+		fmt.Println("Problem while reading file", err)
+		return false
+	}
+
+	examReport := models.ExamReport{}
+
+	if err := json.Unmarshal([]byte(file), &examReport); err != nil {
+		fmt.Println("Problem while unmarshalling file")
+		return false
+	}
+
+	isUpdated := false
+	var attemptReports []models.AttemptReport
+	for _, attemptReport := range examReport.AttemptReports {
+
+		if !isUpdated {
+			if !attemptReport.IsSubmitted {
+
+				var questionReports []models.QuestionReport
+
+				for _, questionReport := range attemptReport.QuestionReport {
+					if questionReport.QuestionID == questionid {
+						if questionReport.IsAnswered {
+							fmt.Println("Already Answered")
+						} else {
+							questionReport.IsAnswered = true
+							isUpdated = true
+						}
+					}
+					questionReports = append(questionReports, questionReport)
+				}
+				attemptReport.QuestionReport = questionReports
+			}
+		}
+		attemptReports = append(attemptReports, attemptReport)
+	}
+	examReport.AttemptReports = attemptReports
+
+	if isUpdated {
+
+		file, err = json.MarshalIndent(examReport, "", " ")
 		if err != nil {
 			fmt.Println(err)
 			return false

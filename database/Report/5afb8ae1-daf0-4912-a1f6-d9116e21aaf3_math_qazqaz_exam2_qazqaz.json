@@ -3,7 +3,7 @@
  "attemptreports": [
   {
    "attemptno": 1,
-   "issubmitted": true,
+   "issubmitted": false,
    "questionreport": [
     {
      "optionid": "q1_qazqaz",
@@ -13,7 +13,7 @@
     },
     {
      "optionid": "q2_qazqaz",
-     "isanswered": false,
+     "isanswered": true,
      "givenanswer": "",
      "marks": 0
     },
@@ -27,7 +27,7 @@
   },
   {
    "attemptno": 2,
-   "issubmitted": true,
+   "issubmitted": false,
    "questionreport": [
     {
      "optionid": "q1_qazqaz",
@@ -37,7 +37,7 @@
     },
     {
      "optionid": "q2_qazqaz",
-     "isanswered": false,
+     "isanswered": true,
      "givenanswer": "",
      "marks": 0
     },
@@ -61,7 +61,7 @@
     },
     {
      "optionid": "q2_qazqaz",
-     "isanswered": false,
+     "isanswered": true,
      "givenanswer": "",
      "marks": 0
     },
