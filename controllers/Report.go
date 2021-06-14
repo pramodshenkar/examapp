@@ -70,6 +70,7 @@ func UpdateReportForSubmitAnswer(c *gin.Context) {
 		CourseID   string `json:"courseid" binding:"required"`
 		ExamID     string `json:"examid" binding:"required"`
 		QuestionID string `json:"questionid" binding:"required"`
+		AnswerID   string `json:"answerid" binding:"required"`
 	}
 
 	if c.BindJSON(&data) != nil {
@@ -79,7 +80,7 @@ func UpdateReportForSubmitAnswer(c *gin.Context) {
 		return
 	}
 
-	isUpdated := api.UpdateReportForSubmitAnswer(data.StudentID, data.CourseID, data.ExamID, data.QuestionID)
+	isUpdated := api.UpdateReportForSubmitAnswer(data.StudentID, data.CourseID, data.ExamID, data.QuestionID, data.AnswerID)
 
 	if !isUpdated {
 		c.JSON(400, gin.H{"message": "Cant update report"})

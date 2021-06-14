@@ -158,7 +158,7 @@ func UpdateReportForEndExam(userid string, courseid string, examid string) bool 
 	return isUpdated
 }
 
-func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid string) bool {
+func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid string) bool {
 
 	filename := fmt.Sprintf("%s%s%s%s%s", userid, "_", courseid, "_", examid)
 
@@ -193,6 +193,7 @@ func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid string) bo
 							fmt.Println("Already Answered")
 						} else {
 							questionReport.IsAnswered = true
+							questionReport.GivenAnswer = answerid
 							isUpdated = true
 						}
 					}
