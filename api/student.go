@@ -36,11 +36,7 @@ func AddStudent(studentid string, getStudent models.Student) bool {
 	path := fmt.Sprintf("%s%s%s", "database/Student/", studentid, ".json")
 	err = ioutil.WriteFile(path, file, 0644)
 
-	if err != nil {
-		return false
-	}
-
-	return true
+	return err == nil
 }
 
 func GetStudent(username string) (models.Student, error) {
@@ -99,10 +95,8 @@ func AddCredentials(studentid string, student models.Student) bool {
 	file, _ := json.MarshalIndent(credentialFile, "", " ")
 
 	err = ioutil.WriteFile("database/credentials.json", file, 0644)
-	if err != nil {
-		return false
-	}
-	return true
+
+	return err == nil
 }
 
 func GetAllCredentials() ([]models.Credentials, error) {

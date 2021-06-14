@@ -12,8 +12,6 @@ func GetReport(userid string, courseid string, examid string, attemptCount int) 
 
 	filename := fmt.Sprintf("%s%s%s%s%s", userid, "_", courseid, "_", examid)
 
-	fmt.Println(filename)
-
 	path := fmt.Sprintf("%s%s%s", "database/Report/", filename, ".json")
 
 	file, err := ioutil.ReadFile(path)
@@ -103,4 +101,59 @@ func GenerateQuestionReport(questionid string) models.QuestionReport {
 		Marks:       0,
 	}
 	return questionReport
+}
+
+func UpdateReportForEndExam(userid string, courseid string, examid string) bool {
+
+	filename := fmt.Sprintf("%s%s%s%s%s", userid, "_", courseid, "_", examid)
+
+	path := fmt.Sprintf("%s%s%s", "database/Report/", filename, ".json")
+
+	file, err := ioutil.ReadFile(path)
+
+	if err != nil {
+		fmt.Println("Problem while reading file", err)
+		return false
+	}
+
+	examReport := models.ExamReport{}
+
+	if err := json.Unmarshal([]byte(file), &examReport); err != nil {
+		fmt.Println("Problem while unmarshalling file")
+		return false
+	}
+
+	isUpdated := false
+	var attemptReports []models.AttemptReport
+	for _, attemptReport := range examReport.AttemptReports {
+
+		if !isUpdated {
+			if !attemptReport.IsSubmitted {
+				attemptReport.IsSubmitted = true
+				isUpdated = true
+			}
+		}
+		attemptReports = append(attemptReports, attemptReport)
+	}
+	examReport.AttemptReports = attemptReports
+
+	if isUpdated {
+
+		fmt.Println(examReport)
+
+		file, err = json.MarshalIndent(examReport, "", " ")
+
+		if err != nil {
+			fmt.Println(err)
+			return false
+		}
+
+		err = ioutil.WriteFile(path, file, 0644)
+		if err != nil {
+			fmt.Println(err)
+		}
+		return err == nil
+	}
+
+	return isUpdated
 }
