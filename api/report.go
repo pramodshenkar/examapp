@@ -196,6 +196,9 @@ func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid 
 						} else {
 							questionReport.IsAnswered = true
 							questionReport.GivenAnswer = answerid
+
+							questionReport.Marks = GetMarks(courseid, questionReport.QuestionID, answerid)
+
 							isUpdated = true
 						}
 					}
@@ -224,4 +227,20 @@ func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid 
 	}
 
 	return isUpdated
+}
+
+func GetMarks(courseid, questionid, answerid string) int {
+	question, err := GetQuestionsByQuestionID(courseid, questionid)
+
+	if err != nil {
+		fmt.Println("can't get question", err)
+		return 0
+	}
+
+	if question.Answer.OptionId == answerid {
+		fmt.Println("Right Answer")
+		return question.Marks
+	}
+	fmt.Println("Wrong Answer")
+	return 0
 }
