@@ -7,21 +7,21 @@
    "questionreport": [
     {
      "questionid": "q1_qazqaz",
-     "isanswered": false,
-     "givenanswer": "",
-     "marks": 0
+     "isanswered": true,
+     "givenanswer": "opt4_qazqaz",
+     "marks": 2
     },
     {
      "questionid": "q2_qazqaz",
-     "isanswered": false,
-     "givenanswer": "",
-     "marks": 0
+     "isanswered": true,
+     "givenanswer": "opt3_qazqaz",
+     "marks": 2
     },
     {
      "questionid": "q3_qazqaz",
-     "isanswered": false,
-     "givenanswer": "",
-     "marks": 0
+     "isanswered": true,
+     "givenanswer": "opt4_qazqaz",
+     "marks": 2
     }
    ]
   },
@@ -31,15 +31,15 @@
    "questionreport": [
     {
      "questionid": "q1_qazqaz",
-     "isanswered": 0,
-     "givenanswer": "",
+     "isanswered": true,
+     "givenanswer": "opt1_qazqaz",
      "marks": 0
     },
     {
      "questionid": "q2_qazqaz",
-     "isanswered": false,
-     "givenanswer": "",
-     "marks": 0
+     "isanswered": true,
+     "givenanswer": "opt3_qazqaz",
+     "marks": 2
     },
     {
      "questionid": "q3_qazqaz",

@@ -75,6 +75,7 @@ func Login(c *gin.Context) {
 	}
 
 	if studentCredentials.Username == "" {
+		fmt.Println("Opps! Username is not found.")
 		c.JSON(404, gin.H{"message": "Opps! Username is not found."})
 		c.Abort()
 		return

@@ -158,8 +158,9 @@ func UpdateReportForEndExam(userid string, courseid string, examid string) bool 
 	return isUpdated
 }
 
-func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid string) bool {
+func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid string) (bool, error) {
 
+	fmt.Println("userid", userid, "\ncourseid", courseid, "\nexamid", examid, "\nquestionid", questionid, "\nanswerid", answerid)
 	filename := fmt.Sprintf("%s%s%s%s%s", userid, "_", courseid, "_", examid)
 
 	path := fmt.Sprintf("%s%s%s", "database/Report/", filename, ".json")
@@ -168,39 +169,51 @@ func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid 
 
 	if err != nil {
 		fmt.Println("Problem while reading file", err)
-		return false
+		return false, err
 	}
 
 	examReport := models.ExamReport{}
 
 	if err := json.Unmarshal([]byte(file), &examReport); err != nil {
 		fmt.Println("Problem while unmarshalling file")
-		return false
+		return false, err
 	}
 
 	isUpdated := false
 	var attemptReports []models.AttemptReport
-	for _, attemptReport := range examReport.AttemptReports {
+	for i, attemptReport := range examReport.AttemptReports {
 
+		fmt.Println("----------------------------------------------------------------")
+
+		fmt.Println(i, "attemptReport : ", attemptReport, "\nisUpdated : ", isUpdated)
 		if !isUpdated {
 			if !attemptReport.IsSubmitted {
 
 				var questionReports []models.QuestionReport
 
-				for _, questionReport := range attemptReport.QuestionReport {
+				for j, questionReport := range attemptReport.QuestionReport {
+
+					fmt.Println("	- ", j, "question : ", questionReport)
 
 					if questionReport.QuestionID == questionid {
 
-						if questionReport.IsAnswered {
-							fmt.Println(" Already Answered")
-						} else {
+						fmt.Println("		- ", "if ", questionReport.QuestionID, "==", questionid)
+
+						// if questionReport.IsAnswered {
+						// 	// fmt.Println(" Already Answered")
+						// 	fmt.Println("			- ", "Already answerd")
+
+						// } else {
+							fmt.Println("			- ", "lets change data")
+
 							questionReport.IsAnswered = true
 							questionReport.GivenAnswer = answerid
 
 							questionReport.Marks = GetMarks(courseid, questionReport.QuestionID, answerid)
+							fmt.Println("				- ", "assigning marks", questionReport.Marks)
 
 							isUpdated = true
-						}
+						// }
 					}
 					questionReports = append(questionReports, questionReport)
 				}
@@ -216,17 +229,19 @@ func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid 
 		file, err = json.MarshalIndent(examReport, "", " ")
 		if err != nil {
 			fmt.Println(err)
-			return false
+			return false, err
 		}
 
 		err = ioutil.WriteFile(path, file, 0644)
 		if err != nil {
 			fmt.Println(err)
+			return false, err
+
 		}
-		return err == nil
+		return err == nil, err
 	}
 
-	return isUpdated
+	return isUpdated, nil
 }
 
 func GetMarks(courseid, questionid, answerid string) int {
