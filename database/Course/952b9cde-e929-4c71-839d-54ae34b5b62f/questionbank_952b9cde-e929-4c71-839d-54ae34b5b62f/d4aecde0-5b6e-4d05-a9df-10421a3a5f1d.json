@@ -1,0 +1,28 @@
+{
+    "questionid":"d4aecde0-5b6e-4d05-a9df-10421a3a5f1d",
+    "questiontext":"2%2=?",
+    "options":[
+    	{
+    	   "optionid":"83bbdf33-d5bb-4cc8-b253-15ff27f87a01",
+    	   "optiontext":"1"
+    	},
+    	{
+    	   "optionid":"4179fcf7-0d6b-4286-853d-e6597ef1485c",
+    	   "optiontext":"2"
+    	},
+    	{
+    	   "optionid":"e11a1958-ed7c-41c4-be5b-d2453d537933",
+    	   "optiontext":"0"
+    	},
+    	{
+    	   "optionid":"18645299-38da-4d1e-9c9f-4624109ad859",
+    	   "optiontext":"4"
+    	}
+    ],
+    "answer": {
+    	   "optionid":"e11a1958-ed7c-41c4-be5b-d2453d537933",
+    	   "optiontext":"0"
+    },
+    "marks":2
+    	
+}
