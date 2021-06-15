@@ -13,7 +13,7 @@ func GetExamsByCourseID(c *gin.Context) {
 	}
 
 	if c.BindJSON(&data) != nil {
-		fmt.Println("Provide required details")
+		fmt.Println("Provide required details for GetExamsByCourseID")
 		c.JSON(400, gin.H{"message": "Provide required details"})
 		c.Abort()
 		return
@@ -38,7 +38,7 @@ func GetExamsByExamID(c *gin.Context) {
 	}
 
 	if c.BindJSON(&data) != nil {
-		fmt.Println("Provide required details")
+		fmt.Println("Provide required details for GetExamsByExamID")
 		c.JSON(400, gin.H{"message": "Provide required details"})
 		c.Abort()
 		return

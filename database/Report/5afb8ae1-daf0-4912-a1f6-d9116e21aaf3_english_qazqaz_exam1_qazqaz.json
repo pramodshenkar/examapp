@@ -3,12 +3,12 @@
  "attemptreports": [
   {
    "attemptno": 1,
-   "issubmitted": false,
+   "issubmitted": true,
    "questionreport": [
     {
      "questionid": "q1_qazqaz",
-     "isanswered": false,
-     "givenanswer": "",
+     "isanswered": true,
+     "givenanswer": "opt1_qazqaz",
      "marks": 0
     },
     {
@@ -27,7 +27,7 @@
   },
   {
    "attemptno": 2,
-   "issubmitted": false,
+   "issubmitted": true,
    "questionreport": [
     {
      "questionid": "q1_qazqaz",
@@ -51,25 +51,25 @@
   },
   {
    "attemptno": 3,
-   "issubmitted": false,
+   "issubmitted": true,
    "questionreport": [
     {
      "questionid": "q1_qazqaz",
-     "isanswered": false,
-     "givenanswer": "",
-     "marks": 0
+     "isanswered": true,
+     "givenanswer": "opt4_qazqaz",
+     "marks": 2
     },
     {
      "questionid": "q2_qazqaz",
-     "isanswered": false,
-     "givenanswer": "",
-     "marks": 0
+     "isanswered": true,
+     "givenanswer": "opt3_qazqaz",
+     "marks": 2
     },
     {
      "questionid": "q3_qazqaz",
-     "isanswered": false,
-     "givenanswer": "",
-     "marks": 0
+     "isanswered": true,
+     "givenanswer": "opt4_qazqaz",
+     "marks": 2
     }
    ]
   }

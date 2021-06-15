@@ -1,5 +1,5 @@
 {
- "examid": "exam2_qazqaz",
+ "examid": "exam1_qazqaz",
  "attemptreports": [
   {
    "attemptno": 1,
@@ -8,14 +8,14 @@
     {
      "questionid": "q1_qazqaz",
      "isanswered": true,
-     "givenanswer": "opt3_qazqaz",
+     "givenanswer": "opt1_qazqaz",
      "marks": 0
     },
     {
      "questionid": "q2_qazqaz",
      "isanswered": true,
-     "givenanswer": "opt3_qazqaz",
-     "marks": 2
+     "givenanswer": "opt1_qazqaz",
+     "marks": 0
     },
     {
      "questionid": "q3_qazqaz",
@@ -27,19 +27,19 @@
   },
   {
    "attemptno": 2,
-   "issubmitted": true,
+   "issubmitted": false,
    "questionreport": [
     {
      "questionid": "q1_qazqaz",
-     "isanswered": false,
-     "givenanswer": "",
+     "isanswered": true,
+     "givenanswer": "opt2_qazqaz",
      "marks": 0
     },
     {
      "questionid": "q2_qazqaz",
      "isanswered": false,
      "givenanswer": "",
-     "marks": 2
+     "marks": 0
     },
     {
      "questionid": "q3_qazqaz",
@@ -51,7 +51,7 @@
   },
   {
    "attemptno": 3,
-   "issubmitted": true,
+   "issubmitted": false,
    "questionreport": [
     {
      "questionid": "q1_qazqaz",

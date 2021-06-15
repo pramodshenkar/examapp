@@ -16,7 +16,7 @@ func GetReport(c *gin.Context) {
 	}
 
 	if c.BindJSON(&data) != nil {
-		fmt.Println("Provide required details")
+		fmt.Println("Provide required details for GetReport")
 		c.JSON(400, gin.H{"message": "Provide required details"})
 		c.Abort()
 		return
@@ -44,7 +44,7 @@ func UpdateReportForEndExam(c *gin.Context) {
 	}
 
 	if c.BindJSON(&data) != nil {
-		fmt.Println("Provide required details")
+		fmt.Println("Provide required details for UpdateReportForEndExam")
 		c.JSON(400, gin.H{"message": "Provide required details"})
 		c.Abort()
 		return
@@ -74,7 +74,7 @@ func UpdateReportForSubmitAnswer(c *gin.Context) {
 	}
 
 	if c.BindJSON(&data) != nil {
-		fmt.Println("Provide required details")
+		fmt.Println("Provide required details for UpdateReportForSubmitAnswer")
 		c.JSON(400, gin.H{"message": "Provide required details"})
 		c.Abort()
 		return

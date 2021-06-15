@@ -60,7 +60,7 @@ func Login(c *gin.Context) {
 	}
 
 	if c.BindJSON(&getStudent) != nil {
-		fmt.Println("Provide required details")
+		fmt.Println("Provide required details for Login")
 		c.JSON(400, gin.H{"message": "Provide required details."})
 		c.Abort()
 		return

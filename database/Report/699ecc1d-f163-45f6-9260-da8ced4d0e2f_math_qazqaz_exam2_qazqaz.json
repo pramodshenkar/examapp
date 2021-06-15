@@ -3,31 +3,31 @@
  "attemptreports": [
   {
    "attemptno": 1,
-   "issubmitted": true,
+   "issubmitted": false,
    "questionreport": [
     {
      "questionid": "q1_qazqaz",
-     "isanswered": true,
-     "givenanswer": "opt3_qazqaz",
+     "isanswered": false,
+     "givenanswer": "",
      "marks": 0
     },
     {
      "questionid": "q2_qazqaz",
-     "isanswered": true,
-     "givenanswer": "opt3_qazqaz",
-     "marks": 2
+     "isanswered": false,
+     "givenanswer": "",
+     "marks": 0
     },
     {
      "questionid": "q3_qazqaz",
-     "isanswered": true,
-     "givenanswer": "opt4_qazqaz",
-     "marks": 2
+     "isanswered": false,
+     "givenanswer": "",
+     "marks": 0
     }
    ]
   },
   {
    "attemptno": 2,
-   "issubmitted": true,
+   "issubmitted": false,
    "questionreport": [
     {
      "questionid": "q1_qazqaz",
@@ -39,7 +39,7 @@
      "questionid": "q2_qazqaz",
      "isanswered": false,
      "givenanswer": "",
-     "marks": 2
+     "marks": 0
     },
     {
      "questionid": "q3_qazqaz",
@@ -51,7 +51,7 @@
   },
   {
    "attemptno": 3,
-   "issubmitted": true,
+   "issubmitted": false,
    "questionreport": [
     {
      "questionid": "q1_qazqaz",

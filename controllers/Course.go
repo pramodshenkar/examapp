@@ -24,8 +24,8 @@ func GetSudentEnrolledCourses(c *gin.Context) {
 	}
 
 	if c.BindJSON(&data) != nil {
-		fmt.Println("Provide required details")
-		c.JSON(400, gin.H{"message": "Provide required details"})
+		fmt.Println("Provide required details for GetSudentEnrolledCourses")
+		c.JSON(400, gin.H{"message": "Provide required details "})
 		c.Abort()
 		return
 	}
@@ -66,7 +66,7 @@ func GetCoursesByID(c *gin.Context) {
 	}
 
 	if c.BindJSON(&data) != nil {
-		fmt.Println("Provide required details")
+		fmt.Println("Provide required details for GetCoursesByID")
 		c.JSON(400, gin.H{"message": "Provide required details"})
 		c.Abort()
 		return

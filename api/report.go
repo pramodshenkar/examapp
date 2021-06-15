@@ -160,7 +160,7 @@ func UpdateReportForEndExam(userid string, courseid string, examid string) bool 
 
 func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid string) (bool, error) {
 
-	fmt.Println("userid", userid, "\ncourseid", courseid, "\nexamid", examid, "\nquestionid", questionid, "\nanswerid", answerid)
+	// fmt.Println("userid", userid, "\ncourseid", courseid, "\nexamid", examid, "\nquestionid", questionid, "\nanswerid", answerid)
 	filename := fmt.Sprintf("%s%s%s%s%s", userid, "_", courseid, "_", examid)
 
 	path := fmt.Sprintf("%s%s%s", "database/Report/", filename, ".json")
@@ -181,38 +181,31 @@ func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid 
 
 	isUpdated := false
 	var attemptReports []models.AttemptReport
-	for i, attemptReport := range examReport.AttemptReports {
+	for _, attemptReport := range examReport.AttemptReports {
 
-		fmt.Println("----------------------------------------------------------------")
-
-		fmt.Println(i, "attemptReport : ", attemptReport, "\nisUpdated : ", isUpdated)
+		// fmt.Println("----------------------------------------------------------------")
+		// fmt.Println(i, "attemptReport : ", attemptReport, "\nisUpdated : ", isUpdated)
 		if !isUpdated {
 			if !attemptReport.IsSubmitted {
 
 				var questionReports []models.QuestionReport
 
-				for j, questionReport := range attemptReport.QuestionReport {
+				for _, questionReport := range attemptReport.QuestionReport {
 
-					fmt.Println("	- ", j, "question : ", questionReport)
+					// fmt.Println("	- ", j, "question : ", questionReport)
 
 					if questionReport.QuestionID == questionid {
 
-						fmt.Println("		- ", "if ", questionReport.QuestionID, "==", questionid)
+						// fmt.Println("		- ", "if ", questionReport.QuestionID, "==", questionid)
+						// fmt.Println("			- ", "lets change data")
 
-						// if questionReport.IsAnswered {
-						// 	// fmt.Println(" Already Answered")
-						// 	fmt.Println("			- ", "Already answerd")
+						questionReport.IsAnswered = true
+						questionReport.GivenAnswer = answerid
 
-						// } else {
-							fmt.Println("			- ", "lets change data")
+						questionReport.Marks = GetMarks(courseid, questionReport.QuestionID, answerid)
+						// fmt.Println("				- ", "assigning marks", questionReport.Marks)
 
-							questionReport.IsAnswered = true
-							questionReport.GivenAnswer = answerid
-
-							questionReport.Marks = GetMarks(courseid, questionReport.QuestionID, answerid)
-							fmt.Println("				- ", "assigning marks", questionReport.Marks)
-
-							isUpdated = true
+						isUpdated = true
 						// }
 					}
 					questionReports = append(questionReports, questionReport)
@@ -253,9 +246,7 @@ func GetMarks(courseid, questionid, answerid string) int {
 	}
 
 	if question.Answer.OptionId == answerid {
-		fmt.Println("Right Answer")
 		return question.Marks
 	}
-	fmt.Println("Wrong Answer")
 	return 0
 }
