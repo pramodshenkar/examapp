@@ -13,8 +13,6 @@ func main() {
 	router := gin.Default()
 	router.Use(cors.Default())
 
-	router.POST("/greet", controllers.SayHello)
-
 	v1 := router.Group("/student")
 	{
 		v1.POST("/signup", controllers.Signup)
@@ -45,7 +43,6 @@ func main() {
 		AllowCredentials: true,
 		MaxAge:           12 * time.Hour,
 	}))
-
 	v2.Use(middlewares.Authenticate())
 	{
 		v2.POST("/hello", controllers.SayHello)
