@@ -1,27 +1,27 @@
 {
   "questionid": "c06055a8-db19-43f4-87f7-29acec4e87b2",
-  "questiontext": "2%2=?",
+  "questiontext": "Two differnt poles _____",
   "options": [
     {
       "optionid": "83bbdf33-d5bb-4cc8-b253-15ff27f87a01",
-      "optiontext": "1"
+      "optiontext": "repel each other"
     },
     {
       "optionid": "4179fcf7-0d6b-4286-853d-e6597ef1485c",
-      "optiontext": "2"
+      "optiontext": "Neither attract not repel each other"
     },
     {
       "optionid": "e11a1958-ed7c-41c4-be5b-d2453d537933",
-      "optiontext": "0"
+      "optiontext": "Attractes each other"
     },
     {
       "optionid": "18645299-38da-4d1e-9c9f-4624109ad859",
-      "optiontext": "4"
+      "optiontext": "None of these"
     }
   ],
   "answer": {
     "optionid": "e11a1958-ed7c-41c4-be5b-d2453d537933",
-    "optiontext": "0"
+    "optiontext": "Attractes each other"
   },
   "marks": 2
 }

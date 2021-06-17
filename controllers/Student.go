@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/pramodshenkar/examapp/api"
 	"github.com/pramodshenkar/examapp/models"
+	"github.com/pramodshenkar/examapp/services"
 )
 
 func Signup(c *gin.Context) {
@@ -89,10 +90,27 @@ func Login(c *gin.Context) {
 
 	student, err := api.GetStudent(studentCredentials.Username)
 	if err != nil {
-		c.JSON(400, gin.H{"message": "Problem to your data."})
+		c.JSON(400, gin.H{"message": "Problem to get your data."})
 		c.Abort()
 		return
 	}
 
-	c.JSON(200, gin.H{"student": student})
+	token, err := services.GenerateToken(student.Username)
+
+	// If we fail to generate token for access
+	if err != nil {
+		c.JSON(403, gin.H{"message": "There was a problem logging you in, try again later"})
+		c.Abort()
+		return
+	}
+
+	result := struct {
+		Student models.Student `json:"student"`
+		Token   string         `json:"token"`
+	}{
+		Student: student,
+		Token:   token,
+	}
+
+	c.JSON(200, gin.H{"result": result})
 }
