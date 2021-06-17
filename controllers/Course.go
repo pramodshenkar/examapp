@@ -11,7 +11,7 @@ func GetAllCourses(c *gin.Context) {
 	courses, err := api.GetCourses()
 
 	if err != nil {
-		c.JSON(400, gin.H{"message": "Problem to get Courses"})
+		c.JSON(400, gin.H{"message": "Problem to get all Courses"})
 		c.Abort()
 		return
 	}
@@ -61,6 +61,7 @@ func GetSudentEnrolledCourses(c *gin.Context) {
 
 func GetCoursesByID(c *gin.Context) {
 
+
 	var data struct {
 		CourseID string `json:"courseid" binding:"required"`
 	}
@@ -76,7 +77,7 @@ func GetCoursesByID(c *gin.Context) {
 
 	if err != nil {
 		fmt.Println("Problem logging into your account")
-		c.JSON(400, gin.H{"message": "Problem logging into your account"})
+		c.JSON(400, gin.H{"message": "Problem to get course for your courseid"})
 		c.Abort()
 		return
 	}

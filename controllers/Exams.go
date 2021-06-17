@@ -48,7 +48,7 @@ func GetExamsByExamID(c *gin.Context) {
 
 	if err != nil {
 		fmt.Println("Problem to get exams ")
-		c.JSON(400, gin.H{"message": "Problem to get Exams"})
+		c.JSON(400, gin.H{"message": "Problem to get Exams for your intented examid"})
 		c.Abort()
 		return
 	}

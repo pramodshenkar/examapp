@@ -53,7 +53,7 @@ func UpdateReportForEndExam(c *gin.Context) {
 	isUpdated := api.UpdateReportForEndExam(data.StudentID, data.CourseID, data.ExamID)
 
 	if !isUpdated {
-		c.JSON(400, gin.H{"message": "Cant update report"})
+		c.JSON(400, gin.H{"message": "No updation is done in report"})
 		c.Abort()
 		return
 
@@ -83,13 +83,13 @@ func UpdateReportForSubmitAnswer(c *gin.Context) {
 	isUpdated, err := api.UpdateReportForSubmitAnswer(data.StudentID, data.CourseID, data.ExamID, data.QuestionID, data.AnswerID)
 
 	if err != nil {
-		c.JSON(400, gin.H{"message": err})
+		c.JSON(400, gin.H{"message": "Problem to Update report for submitted question"})
 		c.Abort()
 		return
 	}
 
 	if !isUpdated {
-		c.JSON(400, gin.H{"message": isUpdated})
+		c.JSON(400, gin.H{"message": "No report is updated"})
 		c.Abort()
 		return
 	}

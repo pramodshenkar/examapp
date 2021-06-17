@@ -23,8 +23,8 @@ func GetQuestionsIDsByExamID(c *gin.Context) {
 	questions, err := api.GetQuestionsIDsByExamID(data.CourseID, data.ExamID)
 
 	if err != nil {
-		fmt.Println("Problem to get exams ")
-		c.JSON(400, gin.H{"message": "Problem to get Exams"})
+		fmt.Println("Problem to get questions for intended examid ")
+		c.JSON(400, gin.H{"message": "Problem to get Problem to get questions for intended examid"})
 		c.Abort()
 		return
 	}
@@ -48,8 +48,8 @@ func GetQuestionsByQuestionID(c *gin.Context) {
 	question, err := api.GetQuestionsByQuestionID(data.CourseId, data.QuestionID)
 
 	if err != nil {
-		fmt.Println("Problem to get exams ")
-		c.JSON(400, gin.H{"message": "Problem to get Exams"})
+		fmt.Println("Problem to get questions for intended questionid ")
+		c.JSON(400, gin.H{"message": "Problem to get questions for intended questionid"})
 		c.Abort()
 		return
 	}

@@ -1,27 +1,27 @@
 {
   "questionid": "7b498989-ee47-4a29-8773-b3e915fdbdea",
-  "questiontext": "2+2=?",
+  "questiontext": "We have _____ sense organs",
   "options": [
     {
       "optionid": "83bbdf33-d5bb-4cc8-b253-15ff27f87a01",
-      "optiontext": "1"
+      "optiontext": "20"
     },
     {
       "optionid": "4179fcf7-0d6b-4286-853d-e6597ef1485c",
-      "optiontext": "2"
-    },
-    {
-      "optionid": "e11a1958-ed7c-41c4-be5b-d2453d537933",
       "optiontext": "0"
     },
     {
+      "optionid": "e11a1958-ed7c-41c4-be5b-d2453d537933",
+      "optiontext": "10"
+    },
+    {
       "optionid": "18645299-38da-4d1e-9c9f-4624109ad859",
-      "optiontext": "4"
+      "optiontext": "5"
     }
   ],
   "answer": {
     "optionid": "18645299-38da-4d1e-9c9f-4624109ad859",
-    "optiontext": "4"
+    "optiontext": "5"
   },
   "marks": 2
 }
