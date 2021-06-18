@@ -36,8 +36,7 @@ func main() {
 
 	v2 := router.Group("")
 	v2.Use(cors.New(cors.Config{
-		AllowAllOrigins: true,
-		// AllowOrigins:     []string{"http://localhost:8080"},
+		AllowAllOrigins:  true,
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"},
 		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length"},

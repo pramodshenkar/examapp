@@ -1,0 +1,31 @@
+{
+    "questionid":"q5_qazqaz",
+    "questiontext":"q5_qazqaz.png",
+	"mediapath":"/home/admino/Desktop/examapp/goapp/resources/q5_qazqaz.mp3",
+	"filetype":"audio",
+
+    "options":[
+    	{
+    	   "optionid":"opt1_qazqaz",
+    	   "optiontext":"1"
+    	},
+    	{
+    	   "optionid":"opt2_qazqaz",
+    	   "optiontext":"2"
+    	},
+    	{
+    	   "optionid":"opt3_qazqaz",
+    	   "optiontext":"0"
+    	},
+    	{
+    	   "optionid":"opt4_qazqaz",
+    	   "optiontext":"4"
+    	}
+    ],
+    "answer": {
+    	   "optionid":"opt3_qazqaz",
+    	   "optiontext":"0"
+    },
+    "marks":2
+    	
+}

@@ -1,0 +1,30 @@
+{
+    "questionid":"q2_qazqaz",
+    "questiontext":"Which is 26th character of english alphabets from following",
+	"mediapath":null,
+	"filetype":null,
+    "options":[
+    	{
+    	   "optionid":"opt1_qazqaz",
+    	   "optiontext":"B"
+    	},
+    	{
+    	   "optionid":"opt2_qazqaz",
+    	   "optiontext":"D"
+    	},
+    	{
+    	   "optionid":"opt3_qazqaz",
+    	   "optiontext":"Z"
+    	},
+    	{
+    	   "optionid":"opt4_qazqaz",
+    	   "optiontext":"M"
+    	}
+    ],
+    "answer": 	{
+    	   "optionid":"opt3_qazqaz",
+    	   "optiontext":"Z"
+    	},
+    "marks":2
+    	
+}

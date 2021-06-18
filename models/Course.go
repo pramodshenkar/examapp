@@ -16,6 +16,8 @@ type Exam struct {
 type Question struct {
 	QuestionID   string   `json:"questionid"`
 	QuestionText string   `json:"questiontext"`
+	Mediapath    string   `json:"mediapath"`
+	Filetype     string   `json:"filetype"`
 	Options      []Option `json:"options"`
 	Answer       Option   `json:"answer"`
 	Marks        int      `json:"marks"`

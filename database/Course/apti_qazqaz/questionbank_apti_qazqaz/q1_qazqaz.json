@@ -1,0 +1,30 @@
+{
+    "questionid":"q1_qazqaz",
+    "questiontext":"Refer following image and select right option",
+	"mediapath":"/home/admino/Desktop/examapp/goapp/resources/q1_qazqaz.png",
+	"filetype":"image",
+    "options":[
+    	{
+    	   "optionid":"opt1_qazqaz",
+    	   "optiontext":"1"
+    	},
+    	{
+    	   "optionid":"opt2_qazqaz",
+    	   "optiontext":"2"
+    	},
+    	{
+    	   "optionid":"opt3_qazqaz",
+    	   "optiontext":"0"
+    	},
+    	{
+    	   "optionid":"opt4_qazqaz",
+    	   "optiontext":"4"
+    	}
+    ],
+    "answer": {
+    	   "optionid":"opt4_qazqaz",
+    	   "optiontext":"4"
+    },
+    "marks":2
+    	
+}
