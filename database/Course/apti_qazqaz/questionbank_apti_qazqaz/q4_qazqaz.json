@@ -1,6 +1,8 @@
 {
     "questionid":"q4_qazqaz",
-    "questiontext":"q4_qazqaz.png",
+	"questiontype":"mcq-multianswer",
+
+    "questiontext":"Select right answer : [correct Answer : 1 & 3]",
 	"mediapath":"/home/admino/Desktop/examapp/goapp/resources/q4_qazqaz.png",
 	"filetype":"image",
     "options":[
@@ -21,10 +23,14 @@
     	   "optiontext":"4"
     	}
     ],
-    "answer": {
+    "answer": [{
     	   "optionid":"opt1_qazqaz",
     	   "optiontext":"1"
     },
+	{
+		"optionid":"opt3_qazqaz",
+		"optiontext":"0"
+	 }],
     "marks":2
     	
 }

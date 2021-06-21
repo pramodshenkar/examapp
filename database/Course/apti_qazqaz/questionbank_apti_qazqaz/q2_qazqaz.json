@@ -1,5 +1,7 @@
 {
     "questionid":"q2_qazqaz",
+	"questiontype":"mcq-singleanswer",
+
     "questiontext":"Which is 26th character of english alphabets from following",
 	"mediapath":null,
 	"filetype":null,
@@ -21,10 +23,10 @@
     	   "optiontext":"M"
     	}
     ],
-    "answer": 	{
+    "answer":[ 	{
     	   "optionid":"opt3_qazqaz",
     	   "optiontext":"Z"
-    	},
+    	}],
     "marks":2
     	
 }

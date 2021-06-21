@@ -1,5 +1,7 @@
 {
     "questionid":"q5_qazqaz",
+	"questiontype":"mcq-singleanswer",
+
     "questiontext":"q5_qazqaz.png",
 	"mediapath":"/home/admino/Desktop/examapp/goapp/resources/q5_qazqaz.mp3",
 	"filetype":"audio",
@@ -22,10 +24,10 @@
     	   "optiontext":"4"
     	}
     ],
-    "answer": {
+    "answer": [{
     	   "optionid":"opt3_qazqaz",
     	   "optiontext":"0"
-    },
+    }],
     "marks":2
     	
 }

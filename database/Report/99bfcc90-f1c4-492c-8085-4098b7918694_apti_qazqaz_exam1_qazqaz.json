@@ -9,10 +9,10 @@
      "questionid": "q1_qazqaz",
      "isanswered": true,
      "givenanswer": [
-      "opt3_qazqaz",
-      "opt4_qazqaz"
+      "opt1_qazqaz",
+      "opt2_qazqaz"
      ],
-     "marks": 2
+     "marks": 0
     },
     {
      "questionid": "q2_qazqaz",
