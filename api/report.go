@@ -97,7 +97,7 @@ func GenerateQuestionReport(questionid string) models.QuestionReport {
 	questionReport := models.QuestionReport{
 		QuestionID:  questionid,
 		IsAnswered:  false,
-		GivenAnswer: "",
+		GivenAnswer: []string{},
 		Marks:       0,
 	}
 	return questionReport
@@ -158,7 +158,7 @@ func UpdateReportForEndExam(userid string, courseid string, examid string) bool 
 	return isUpdated
 }
 
-func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid string) (bool, error) {
+func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid string, answerid []string) (bool, error) {
 
 	// fmt.Println("userid", userid, "\ncourseid", courseid, "\nexamid", examid, "\nquestionid", questionid, "\nanswerid", answerid)
 	filename := fmt.Sprintf("%s%s%s%s%s", userid, "_", courseid, "_", examid)
@@ -237,7 +237,7 @@ func UpdateReportForSubmitAnswer(userid, courseid, examid, questionid, answerid 
 	return isUpdated, nil
 }
 
-func GetMarks(courseid, questionid, answerid string) int {
+func GetMarks(courseid, questionid string, givenAnswers []string) int {
 	question, err := GetQuestionsByQuestionID(courseid, questionid)
 
 	if err != nil {
@@ -245,8 +245,24 @@ func GetMarks(courseid, questionid, answerid string) int {
 		return 0
 	}
 
-	if question.Answer.OptionId == answerid {
+	isCorrect := false
+
+	for _, correctAnswer := range question.Answer {
+		isCorrect = false
+		for _, givenAnswer := range givenAnswers {
+			if givenAnswer == correctAnswer.OptionId {
+				isCorrect = true
+				break
+			}
+		}
+		if !isCorrect {
+			break
+		}
+	}
+
+	if isCorrect {
 		return question.Marks
 	}
+
 	return 0
 }

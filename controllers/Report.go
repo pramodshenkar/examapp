@@ -66,11 +66,11 @@ func UpdateReportForEndExam(c *gin.Context) {
 func UpdateReportForSubmitAnswer(c *gin.Context) {
 
 	var data struct {
-		StudentID  string `json:"studentid" binding:"required"`
-		CourseID   string `json:"courseid" binding:"required"`
-		ExamID     string `json:"examid" binding:"required"`
-		QuestionID string `json:"questionid" binding:"required"`
-		AnswerID   string `json:"answerid" binding:"required"`
+		StudentID  string   `json:"studentid" binding:"required"`
+		CourseID   string   `json:"courseid" binding:"required"`
+		ExamID     string   `json:"examid" binding:"required"`
+		QuestionID string   `json:"questionid" binding:"required"`
+		AnswerID   []string `json:"answerid" binding:"required"`
 	}
 
 	if c.BindJSON(&data) != nil {

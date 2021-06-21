@@ -1,6 +1,7 @@
 {
     "questionid":"q1_qazqaz",
-    "questiontext":"Refer following image and select right option",
+	"questiontype":"mcq-multianswer",
+    "questiontext":"Refer following image and select right option [answers : 3 & 4]",
 	"mediapath":"/home/admino/Desktop/examapp/goapp/resources/q1_qazqaz.png",
 	"filetype":"image",
     "options":[
@@ -21,10 +22,15 @@
     	   "optiontext":"4"
     	}
     ],
-    "answer": {
-    	   "optionid":"opt4_qazqaz",
-    	   "optiontext":"4"
-    },
-    "marks":2
-    	
+    "answer": [
+		{
+			"optionid":"opt3_qazqaz",
+			"optiontext":"0"
+		 },
+		 {
+			"optionid":"opt4_qazqaz",
+			"optiontext":"4"
+		 }
+	],
+    "marks":2	
 }

@@ -1,10 +1,10 @@
 package models
 
 type QuestionReport struct {
-	QuestionID  string `json:"questionid"`
-	IsAnswered  bool   `json:"isanswered"`
-	GivenAnswer string `json:"givenanswer"`
-	Marks       int    `json:"marks"`
+	QuestionID  string   `json:"questionid"`
+	IsAnswered  bool     `json:"isanswered"`
+	GivenAnswer []string `json:"givenanswer"`
+	Marks       int      `json:"marks"`
 }
 
 type AttemptReport struct {

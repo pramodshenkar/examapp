@@ -1,0 +1,116 @@
+{
+ "examid": "exam1_qazqaz",
+ "attemptreports": [
+  {
+   "attemptno": 1,
+   "issubmitted": false,
+   "questionreport": [
+    {
+     "questionid": "q1_qazqaz",
+     "isanswered": true,
+     "givenanswer": [
+      "opt3_qazqaz",
+      "opt4_qazqaz"
+     ],
+     "marks": 2
+    },
+    {
+     "questionid": "q2_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q3_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q4_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q5_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    }
+   ]
+  },
+  {
+   "attemptno": 2,
+   "issubmitted": false,
+   "questionreport": [
+    {
+     "questionid": "q1_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q2_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q3_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q4_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q5_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    }
+   ]
+  },
+  {
+   "attemptno": 3,
+   "issubmitted": false,
+   "questionreport": [
+    {
+     "questionid": "q1_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q2_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q3_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q4_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    },
+    {
+     "questionid": "q5_qazqaz",
+     "isanswered": false,
+     "givenanswer": [],
+     "marks": 0
+    }
+   ]
+  }
+ ]
+}
