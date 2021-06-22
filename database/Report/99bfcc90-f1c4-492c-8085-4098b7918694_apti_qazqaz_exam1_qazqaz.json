@@ -16,26 +16,35 @@
     },
     {
      "questionid": "q2_qazqaz",
-     "isanswered": false,
-     "givenanswer": [],
+     "isanswered": true,
+     "givenanswer": [
+      "opt4_qazqaz"
+     ],
      "marks": 0
     },
     {
      "questionid": "q3_qazqaz",
-     "isanswered": false,
-     "givenanswer": [],
+     "isanswered": true,
+     "givenanswer": [
+      "opt1_qazqaz"
+     ],
      "marks": 0
     },
     {
      "questionid": "q4_qazqaz",
-     "isanswered": false,
-     "givenanswer": [],
+     "isanswered": true,
+     "givenanswer": [
+      "opt3_qazqaz",
+      "opt4_qazqaz"
+     ],
      "marks": 0
     },
     {
      "questionid": "q5_qazqaz",
-     "isanswered": false,
-     "givenanswer": [],
+     "isanswered": true,
+     "givenanswer": [
+      "opt1_qazqaz"
+     ],
      "marks": 0
     }
    ]
