@@ -72,12 +72,14 @@ func main() {
 	v1 := router.Group("student")
 	router.Use(cors.Default())
 	{
+		v1.POST("/signup", controllers.Signup)
 		v1.POST("/login", controllers.Login)
+		v1.POST("/courses", controllers.GetSudentEnrolledCourses)
 	}
 
 	v2 := router.Group("")
 	v2.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:5500"},
+		AllowOrigins:     []string{"http://localhost:8080"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD"},
 		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length"},
@@ -89,6 +91,23 @@ func main() {
 		v2.POST("/dashboard", controllers.SayHello)
 	}
 
+	router.GET("/courses", controllers.GetAllCourses)
+	router.POST("/course", controllers.GetCoursesByID)
+
+	router.POST("/exams", controllers.GetExamsByCourseID)
+	router.POST("/exam", controllers.GetExamsByExamID)
+
+	router.POST("/report", controllers.GetReport)
+
+	router.POST("/questions", controllers.GetQuestionsIDsByExamID)
+	router.POST("/question", controllers.GetQuestionsByQuestionID)
+
+	router.POST("/endexam", controllers.UpdateReportForEndExam)
+	router.POST("/submitanswer", controllers.UpdateReportForSubmitAnswer)
+
+	router.NoRoute(func(c *gin.Context) {
+		c.JSON(404, gin.H{"message": "Not found"})
+	})
+
 	router.Run(":5000")
 }
-
