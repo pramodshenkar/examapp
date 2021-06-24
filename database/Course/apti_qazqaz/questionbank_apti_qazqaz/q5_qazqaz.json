@@ -2,8 +2,8 @@
     "questionid":"q5_qazqaz",
 	"questiontype":"mcq-singleanswer",
 
-    "questiontext":"q5_qazqaz.png",
-	"mediapath":"/home/admino/Desktop/examapp/goapp/resources/q5_qazqaz.mp3",
+    "questiontext":"How many instruments used in following Audio",
+	"mediapath":"/q5_qazqaz.mp3",
 	"filetype":"audio",
 
     "options":[
@@ -13,11 +13,11 @@
     	},
     	{
     	   "optionid":"opt2_qazqaz",
-    	   "optiontext":"2"
+    	   "optiontext":"0"
     	},
     	{
     	   "optionid":"opt3_qazqaz",
-    	   "optiontext":"0"
+    	   "optiontext":"2"
     	},
     	{
     	   "optionid":"opt4_qazqaz",
@@ -26,7 +26,7 @@
     ],
     "answer": [{
     	   "optionid":"opt3_qazqaz",
-    	   "optiontext":"0"
+    	   "optiontext":"2"
     }],
     "marks":2
     	

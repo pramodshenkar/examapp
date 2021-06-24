@@ -2,30 +2,30 @@
     "questionid":"q3_qazqaz",
 	"questiontype":"mcq-singleanswer",
 
-    "questiontext":"q3_qazqaz.png",
-	"mediapath":"/home/admino/Desktop/examapp/goapp/resources/q3_qazqaz.mp4",
+    "questiontext":"Select the planet from following Video : ",
+	"mediapath":"/q3_qazqaz.mp4",
 	"filetype":"video",
     "options":[
     	{
     	   "optionid":"opt1_qazqaz",
-    	   "optiontext":"9"
+    	   "optiontext":"Pluto"
     	},
     	{
     	   "optionid":"opt2_qazqaz",
-    	   "optiontext":"6"
+    	   "optiontext":"Jupitor"
     	},
     	{
     	   "optionid":"opt3_qazqaz",
-    	   "optiontext":"2"
+    	   "optiontext":"Mars"
     	},
     	{
     	   "optionid":"opt4_qazqaz",
-    	   "optiontext":"4"
+    	   "optiontext":"Earth"
     	}
     ],
     "answer":[ {
     	   "optionid":"opt4_qazqaz",
-    	   "optiontext":"4"
+    	   "optiontext":"Earth"
     	}],
     "marks":2
     	

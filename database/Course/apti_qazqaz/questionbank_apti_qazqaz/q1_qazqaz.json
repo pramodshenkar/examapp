@@ -1,8 +1,8 @@
 {
     "questionid":"q1_qazqaz",
 	"questiontype":"mcq-multianswer",
-    "questiontext":"Refer following image and select right option [answers : 3 & 4]",
-	"mediapath":"/home/admino/Desktop/examapp/goapp/resources/q1_qazqaz.png",
+    "questiontext":"Which of the following option is NOT suitable as empty part of image",
+	"mediapath":"/q1_qazqaz.png",
 	"filetype":"image",
     "options":[
     	{
@@ -15,7 +15,7 @@
     	},
     	{
     	   "optionid":"opt3_qazqaz",
-    	   "optiontext":"0"
+    	   "optiontext":"3"
     	},
     	{
     	   "optionid":"opt4_qazqaz",
@@ -24,12 +24,16 @@
     ],
     "answer": [
 		{
-			"optionid":"opt3_qazqaz",
-			"optiontext":"0"
+			"optionid":"opt1_qazqaz",
+			"optiontext":"1"
 		 },
 		 {
-			"optionid":"opt4_qazqaz",
-			"optiontext":"4"
+			"optionid":"opt2_qazqaz",
+			"optiontext":"2"
+		 },
+		 {
+			"optionid":"opt3_qazqaz",
+			"optiontext":"3"
 		 }
 	],
     "marks":2	

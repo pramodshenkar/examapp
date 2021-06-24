@@ -2,8 +2,8 @@
     "questionid":"q4_qazqaz",
 	"questiontype":"mcq-multianswer",
 
-    "questiontext":"Select right answer : [correct Answer : 1 & 3]",
-	"mediapath":"/home/admino/Desktop/examapp/goapp/resources/q4_qazqaz.png",
+    "questiontext":"Which images are NOT suitable in empty part of following images : ",
+	"mediapath":"/q4_qazqaz.png",
 	"filetype":"image",
     "options":[
     	{
@@ -16,7 +16,7 @@
     	},
     	{
     	   "optionid":"opt3_qazqaz",
-    	   "optiontext":"0"
+    	   "optiontext":"3"
     	},
     	{
     	   "optionid":"opt4_qazqaz",
@@ -24,12 +24,16 @@
     	}
     ],
     "answer": [{
-    	   "optionid":"opt1_qazqaz",
-    	   "optiontext":"1"
-    },
-	{
+		"optionid":"opt1_qazqaz",
+		"optiontext":"1"
+	 },
+	 {
+		"optionid":"opt2_qazqaz",
+		"optiontext":"2"
+	 },
+	 {
 		"optionid":"opt3_qazqaz",
-		"optiontext":"0"
+		"optiontext":"3"
 	 }],
     "marks":2
     	
