@@ -25,7 +25,8 @@ func GetQuestionsIDsByExamID(courseid, examid string) ([]string, error) {
 		return []string{}, err
 	}
 
-	return exam.Questions, nil
+	// return exam.Questions, nil
+	return []string{}, nil
 }
 
 func GetQuestionsByQuestionID(courseid, questionid string) (models.Question, error) {

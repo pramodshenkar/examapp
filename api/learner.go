@@ -38,7 +38,7 @@ func GetAllLearners() ([]models.Learner, error) {
 		return []models.Learner{}, err
 	}
 
-	collection := client.Database(connectionHelper.DB).Collection(connectionHelper.ITEMS)
+	collection := client.Database(connectionHelper.DB).Collection(connectionHelper.LEARNER)
 
 	filter := bson.D{{}}
 
@@ -75,7 +75,7 @@ func GetLearner(username string) (models.Learner, error) {
 		return models.Learner{}, err
 	}
 
-	collection := client.Database(connectionHelper.DB).Collection(connectionHelper.ITEMS)
+	collection := client.Database(connectionHelper.DB).Collection(connectionHelper.LEARNER)
 
 	// objectID, _ := primitive.ObjectIDFromHex(learnerid)
 	filter := bson.D{primitive.E{Key: "username", Value: username}}
@@ -94,7 +94,7 @@ func DeleteLearner(learnerid string) (*mongo.DeleteResult, error) {
 		return nil, err
 	}
 
-	collection := client.Database(connectionHelper.DB).Collection(connectionHelper.ITEMS)
+	collection := client.Database(connectionHelper.DB).Collection(connectionHelper.LEARNER)
 
 	objectID, _ := primitive.ObjectIDFromHex(learnerid)
 
@@ -128,7 +128,7 @@ func UpdateLearner(learner models.Learner) (*mongo.UpdateResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	collection := client.Database(connectionHelper.DB).Collection(connectionHelper.ITEMS)
+	collection := client.Database(connectionHelper.DB).Collection(connectionHelper.LEARNER)
 
 	res, err := collection.UpdateOne(context.TODO(), filter, updater)
 	if err != nil {

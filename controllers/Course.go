@@ -7,7 +7,7 @@ import (
 	"github.com/pramodshenkar/examapp/api"
 )
 
-func GetAllCourses(c *gin.Context) {
+func GetAllCourses2(c *gin.Context) {
 	courses, err := api.GetCourses()
 
 	if err != nil {
@@ -60,7 +60,6 @@ func GetSudentEnrolledCourses(c *gin.Context) {
 }
 
 func GetCoursesByID(c *gin.Context) {
-
 
 	var data struct {
 		CourseID string `json:"courseid" binding:"required"`

@@ -1,4 +1,4 @@
-package connectionhelper
+package connectionHelper
 
 import (
 	"context"
